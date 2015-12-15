@@ -19,7 +19,7 @@ PACKAGES=(vim curl wget man-db openssh-server bash-completion python-software-pr
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi
-if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] ; then
+if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
   PACKAGES+=' nfs-common'
 fi
 utils.lxc.attach apt-get update
