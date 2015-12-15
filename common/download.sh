@@ -43,7 +43,7 @@ elif [ ${DISTRIBUTION} = 'fedora' -a "${RELEASE}" = 'rawhide' ]; then
   utils.lxc.create -t fedora --\
                    --release ${RELEASE} \
                    --arch ${ARCH}
-elif [ ${DISTRIBUTION} = 'fedora' -a ${RELEASE} -ge '21' ]; then
+elif [ ${DISTRIBUTION} = 'fedora' -a ${RELEASE} -ge 21 ]; then
   ARCH=$(echo ${ARCH} | sed -e "s/38/68/" | sed -e "s/amd64/x86_64/")
   utils.lxc.create -t fedora --\
                    --release ${RELEASE} \
