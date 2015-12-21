@@ -1,4 +1,4 @@
-UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid
+UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid wily
 DEBIAN_BOXES= squeeze wheezy sid jessie
 CENTOS_BOXES= 6
 FEDORA_BOXES= rawhide 23 22 21 20 19

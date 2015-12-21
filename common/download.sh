@@ -30,6 +30,10 @@ if [ $RELEASE = 'raring' ]; then
   utils.lxc.create -t ubuntu -- \
                    --release ${RELEASE} \
                    --arch ${ARCH}
+elif [ $RELEASE = 'wily' ]; then
+  utils.lxc.create -t ubuntu -- \
+                   --release ${RELEASE} \
+                   --arch ${ARCH}
 elif [ $RELEASE = 'squeeze' ] || [ $RELEASE = 'wheezy' ]; then
   utils.lxc.create -t debian -- \
                    --release ${RELEASE} \
@@ -50,9 +54,9 @@ else
                    --release ${RELEASE} \
                    --arch ${ARCH}
 fi
-
-if [ ${DISTRIBUTION} = 'fedora' -o \
-     ${DISTRIBUTION} = 'debian' -a ${RELEASE} = 'jessie' ]
+if [[ ${DISTRIBUTION} = 'fedora' ||\
+      (${DISTRIBUTION} = 'ubuntu' && ${RELEASE} = 'wily') ||\
+      (${DISTRIBUTION} = 'debian' && ${RELEASE} = 'jessie') ]]
 then
   # Improve systemd support:
   # - The fedora template does it but the fedora images from the download

@@ -28,7 +28,7 @@ if [ ${DISTRIBUTION} = 'debian' ]; then
   utils.lxc.attach /usr/sbin/update-rc.d -f mountall-bootclean.sh remove
   utils.lxc.attach /usr/sbin/update-rc.d -f mountnfs-bootclean.sh remove
 
-  # Fixes for jessie, following the guide from 
+  # Fixes for jessie, following the guide from
   # https://wiki.debian.org/LXC#Incompatibility_with_systemd
   if [ "$RELEASE" = 'jessie' ]; then
 	  # Reconfigure the LXC
@@ -48,5 +48,5 @@ utils.lxc.attach /usr/sbin/locale-gen ${LANG}
 utils.lxc.attach update-locale LANG=${LANG}
 
 # Fix to allow bindfs
-utils.lxc.attach ln -s /bin/true /sbin/modprobe
+utils.lxc.attach ln -sf /bin/true /sbin/modprobe
 utils.lxc.attach mknod -m 666 /dev/fuse c 10 229
