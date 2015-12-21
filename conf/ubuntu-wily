@@ -1,0 +1,10 @@
+# Template used to create this container: /usr/share/lxc/templates/lxc-ubuntu
+# Parameters passed to the template: --release wily --arch amd64
+# For additional config options, please look at lxc.container.conf(5)
+
+# Common configuration
+lxc.include = /usr/share/lxc/config/ubuntu.common.conf
+
+# settings for systemd with PID 1:
+lxc.kmsg = 0
+lxc.autodev = 1
