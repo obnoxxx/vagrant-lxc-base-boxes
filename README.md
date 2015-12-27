@@ -60,6 +60,14 @@ make precise
 Will build a Ubuntu Precise x86_64 box with latest Puppet, Chef, Salt and
 Babushka pre-installed.
 
+```sh
+ADDPACKAGES="aptitude htop" \
+make trusty
+```
+
+Will build a Ubuntu Trusty x86_64 box with aptitude and htop as additional
+packages pre-installed. You can also specify the packages in a file
+trusty_packages.
 
 ## Pre built base boxes
 

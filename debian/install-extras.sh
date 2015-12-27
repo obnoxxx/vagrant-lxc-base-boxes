@@ -14,8 +14,11 @@ SECS=15
 log "Sleeping for $SECS seconds..."
 sleep $SECS
 
-# TODO: Support for appending to this list from outside
 PACKAGES=(vim curl wget man-db openssh-server bash-completion python-software-properties ca-certificates sudo)
+
+log "Installing additional packages: ${ADDPACKAGES}"
+PACKAGES+=" ${ADDPACKAGES}"
+
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi

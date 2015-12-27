@@ -13,6 +13,7 @@ export RELEASE=$2
 export ARCH=$3
 export CONTAINER=$4
 export PACKAGE=$5
+export ADDPACKAGES=${ADDPACKAGES-$(cat ${RELEASE}_packages | tr "\n" " ")}
 export ROOTFS="/var/lib/lxc/${CONTAINER}/rootfs"
 export WORKING_DIR="/tmp/${CONTAINER}"
 export NOW=$(date -u)
