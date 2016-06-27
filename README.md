@@ -19,6 +19,7 @@ This repository contains a set of scripts for creating base boxes for usage with
   - Squeeze x86_64
   - Wheezy x86_64
   - Jessie x86_64
+  - Stretch x86_64
   - Sid x86_64
 * Fedora
   - 19 x86_64

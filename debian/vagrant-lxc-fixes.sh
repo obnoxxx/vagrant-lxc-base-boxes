@@ -30,7 +30,7 @@ if [ ${DISTRIBUTION} = 'debian' ]; then
 
   # Fixes for jessie, following the guide from
   # https://wiki.debian.org/LXC#Incompatibility_with_systemd
-  if [ "$RELEASE" = 'jessie' ]; then
+  if [ "$RELEASE" = 'jessie' ] || [ "$RELEASE" = 'stretch' ]; then
 	  # Reconfigure the LXC
 	  utils.lxc.attach /bin/cp \
 		  /lib/systemd/system/getty@.service \
