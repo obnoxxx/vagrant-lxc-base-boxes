@@ -15,12 +15,15 @@ log "Sleeping for $SECS seconds..."
 sleep $SECS
 
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim curl wget man-db openssh-server bash-completion python-software-properties ca-certificates sudo)
+PACKAGES=(vim curl wget man-db openssh-server bash-completion ca-certificates sudo)
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi
 if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
   PACKAGES+=' nfs-common'
+fi
+if [ $RELEASE != 'stretch' ] ; then
+  PACKAGES+=' python-software-properties'
 fi
 utils.lxc.attach apt-get update
 utils.lxc.attach apt-get install ${PACKAGES[*]} -y --force-yes
