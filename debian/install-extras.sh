@@ -116,3 +116,10 @@ EOF
 else
   log "Skipping Babushka installation"
 fi
+
+if [[ $VAGRANT_LXC_PROVISION_SCRIPT ]]; then
+  dest="${ROOTFS}/tmp/${VAGRANT_LXC_PROVISION_SCRIPT##*/}"
+  cp $VAGRANT_LXC_PROVISION_SCRIPT $dest
+  chmod +x $dest
+  utils.lxc.attach "/tmp/${VAGRANT_LXC_PROVISION_SCRIPT##*/}"
+fi
