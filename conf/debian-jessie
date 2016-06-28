@@ -7,6 +7,7 @@ lxc.pivotdir = lxc_putold
 
 # Default mount entries
 lxc.mount.auto = cgroup:mixed proc:mixed sys:mixed
+lxc.mount.entry = /sys/fs/fuse/connections sys/fs/fuse/connections none bind,optional 0 0
 
 # Default console settings
 lxc.tty = 4
