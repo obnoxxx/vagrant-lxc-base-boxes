@@ -17,8 +17,8 @@ centos: $(CENTOS_BOXES)
 fedora: $(FEDORA_BOXES)
 
 # REFACTOR: Figure out how can we reduce duplicated code
-$(UBUNTU_BOXES): CONTAINER = "vagrant-base-${@}-$(ARCH)"
-$(UBUNTU_BOXES): PACKAGE = "output/${TODAY}/vagrant-lxc-${@}-$(ARCH).box"
+$(UBUNTU_BOXES): CONTAINER = "vagrant-base-${@}-$(ARCH)$(BOX_SUFFIX)"
+$(UBUNTU_BOXES): PACKAGE = "output/${TODAY}/vagrant-lxc-${@}-$(ARCH)$(BOX_SUFFIX).box"
 $(UBUNTU_BOXES):
 	@mkdir -p $$(dirname $(PACKAGE))
 	@sudo -E ./mk-debian.sh ubuntu $(@) $(ARCH) $(CONTAINER) $(PACKAGE)
