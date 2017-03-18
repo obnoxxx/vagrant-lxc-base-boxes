@@ -31,6 +31,7 @@ This repository contains a set of scripts for creating base boxes for usage with
 * CentOS
   - 6 x86_64
   - 7 x86_64
+* Archlinux
 
 ## Building the boxes
 

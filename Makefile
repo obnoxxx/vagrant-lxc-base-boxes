@@ -9,7 +9,7 @@ ARCH=$(shell uname -m | sed -e "s/68/38/" | sed -e "s/x86_64/amd64/")
 
 default:
 
-all: ubuntu debian fedora
+all: ubuntu debian fedora archlinux
 
 ubuntu: $(UBUNTU_BOXES)
 debian: $(DEBIAN_BOXES)
@@ -45,6 +45,13 @@ $(FEDORA_BOXES):
 	@sudo -E ./mk-fedora.sh $(@) $(ARCH) $(CONTAINER) $(PACKAGE)
 	@sudo chmod +rw $(PACKAGE)
 	@sudo chown ${USER}: $(PACKAGE)
+archlinux: CONTAINER = "vagrant-base-${@}-$(ARCH)"
+archlinux: PACKAGE = "output/${TODAY}/vagrant-lxc-${@}-$(ARCH).box"
+archlinux:
+	@mkdir -p $$(dirname $(PACKAGE))
+	@sudo -E ./mk-archlinux.sh $(ARCH) $(CONTAINER) $(PACKAGE)
+	@sudo chmod +rw $(PACKAGE)
+	@sudo chown ${USER}: $(PACKAGE)
 
 acceptance: CONTAINER = "vagrant-base-acceptance-$(ARCH)"
 acceptance: PACKAGE = "output/${TODAY}/vagrant-lxc-acceptance-$(ARCH).box"
@@ -60,7 +67,7 @@ release:
 	git tag $(version)
 	git push && git push --tags
 
-clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} ${CENTOS_BOXES} ${FEDORA_BOXES} acceptance
+clean: ALL_BOXES = ${DEBIAN_BOXES} ${UBUNTU_BOXES} ${CENTOS_BOXES} ${FEDORA_BOXES} archlinux acceptance
 clean:
 	@for r in $(ALL_BOXES); do \
 		sudo -E ./clean.sh $${r}\
