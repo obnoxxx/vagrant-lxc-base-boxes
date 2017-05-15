@@ -1,7 +1,7 @@
-UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid wily xenial
+UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid wily xenial yakkety
 DEBIAN_BOXES= squeeze wheezy jessie stretch sid
 CENTOS_BOXES= 6 7
-FEDORA_BOXES= rawhide 23 22 21 20 19
+FEDORA_BOXES= rawhide 25 24 23 22 21 20 19
 TODAY=$(shell date -u +"%Y-%m-%d")
 
 # Replace i686 with i386 and x86_64 with amd64
