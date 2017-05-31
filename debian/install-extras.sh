@@ -14,7 +14,7 @@ SECS=15
 log "Sleeping for $SECS seconds..."
 sleep $SECS
 
-PACKAGES=(vim curl wget man-db openssh-server bash-completion ca-certificates sudo)
+PACKAGES=(vim curl wget man-db openssh-server bash-completion ca-certificates sudo iputils-ping dnsutils)
 
 log "Installing additional packages: ${ADDPACKAGES}"
 PACKAGES+=" ${ADDPACKAGES}"

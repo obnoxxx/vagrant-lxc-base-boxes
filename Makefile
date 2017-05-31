@@ -1,4 +1,4 @@
-UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid wily xenial
+UBUNTU_BOXES= precise quantal raring saucy trusty utopic vivid wily xenial yakkety
 DEBIAN_BOXES= squeeze wheezy jessie stretch sid
 CENTOS_BOXES= centos6 centos7
 FEDORA_BOXES= rawhide fedora23 fedora22 fedora21 fedora20 fedora19
