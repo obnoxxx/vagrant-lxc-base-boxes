@@ -45,6 +45,33 @@ cd vagrant-lxc-base-boxes
 make precise
 ```
 
+List of supported distributions through Makefile
+
+| `make` target | Distribution |
+| ----------- | ------------ |
+| precise | Ubuntu 12.04 LTS |
+| quantal | Ubuntu 12.10 |
+| raring | Ubuntu 13.04 |
+| saucy | Ubuntu 13.10 |
+| trusty | Ubuntu 14.04 LTS |
+| utopic | Ubuntu 14.10 |
+| vivid | Ubuntu 15.04 |
+| wily | Ubuntu 15.10 |
+| xenial | Ubuntu 16.04 |
+| squeeze | Debian 6 |
+| wheezy | Debian 7 |
+| jessie | Debian 8 |
+| stretch | Debian 9 |
+| sid | Debian SID |
+| centos6 | CentOS 6 |
+| centos7 | CentOS 7 |
+| rawhide | Fedora Rawhide |
+| fedora23 | Fedora 23 |
+| fedora22 | Fedora 22 |
+| fedora21 | Fedora 21 |
+| fedora20 | Fedora 20 ( Heisenbug ) |
+| fedora19 | Fedora 19 (Schrödinger's Cat) |
+
 By default no provisioning tools will be included but you can pick the ones
 you want by providing some environmental variables. For example:
 

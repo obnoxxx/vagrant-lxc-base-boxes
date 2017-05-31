@@ -9,7 +9,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 export DISTRIBUTION='fedora'
-export RELEASE=$1
+export RELEASE=$(echo $1|sed -e "s/${DISTRIBUTION}//")
 export ARCH=$2
 export CONTAINER=$3
 export PACKAGE=$4
