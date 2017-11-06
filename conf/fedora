@@ -1,13 +1,12 @@
 # work better with systemd:
 lxc.autodev = 1
-lxc.kmsg = 0
 
 # Taken from the oracle.common.conf.in
 # Console settings
 
-lxc.devttydir = lxc
-lxc.tty = 4
-lxc.pts = 1024
+lxc.tty.dir = lxc
+lxc.tty.max = 4
+lxc.pty.max = 1024
 
 # Mount entries
 lxc.mount.auto = proc:mixed sys:ro
@@ -66,4 +65,4 @@ lxc.cgroup.devices.allow = c 5:2 rwm
 
 # Blacklist some syscalls which are not safe in privileged
 # containers
-lxc.seccomp = /usr/share/lxc/config/common.seccomp
+lxc.seccomp.profile = /usr/share/lxc/config/common.seccomp

@@ -6,8 +6,7 @@
 lxc.include = /usr/share/lxc/config/ubuntu.common.conf
 
 # settings for systemd with PID 1:
-lxc.kmsg = 0
 lxc.autodev = 1
 # allow unconfined and incomplete
-lxc.aa_profile = unconfined
-lxc.aa_allow_incomplete = 1
+lxc.apparmor.profile = unconfined
+lxc.apparmor.allow_incomplete = 1

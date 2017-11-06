@@ -6,9 +6,9 @@ lxc.mount.entry = proc proc proc nodev,noexec,nosuid 0 0
 lxc.mount.entry = sysfs sys sysfs defaults 0 0
 
 # Default console settings
-lxc.devttydir = lxc
-lxc.tty = 4
-lxc.pts = 1024
+lxc.tty.dir = lxc
+lxc.tty.max = 4
+lxc.pty.max = 1024
 
 # Default capabilities
 lxc.cap.drop = sys_module mac_admin mac_override sys_time
@@ -16,11 +16,11 @@ lxc.cap.drop = sys_module mac_admin mac_override sys_time
 # When using LXC with apparmor, the container will be confined by default.
 # If you wish for it to instead run unconfined, copy the following line
 # (uncommented) to the container's configuration file.
-#lxc.aa_profile = unconfined
+#lxc.apparmor.profile = unconfined
 
 # To support container nesting on an Ubuntu host while retaining most of
 # apparmor's added security, use the following two lines instead.
-#lxc.aa_profile = lxc-container-default-with-nesting
+#lxc.apparmor.profile = lxc-container-default-with-nesting
 #lxc.hook.mount = /usr/share/lxc/hooks/mountcgroups
 
 # Uncomment the following line to autodetect squid-deb-proxy configuration on the
@@ -30,7 +30,7 @@ lxc.cap.drop = sys_module mac_admin mac_override sys_time
 # If you wish to allow mounting block filesystems, then use the following
 # line instead, and make sure to grant access to the block device and/or loop
 # devices below in lxc.cgroup.devices.allow.
-#lxc.aa_profile = lxc-container-default-with-mounting
+#lxc.apparmor.profile = lxc-container-default-with-mounting
 
 # Default cgroup limits
 lxc.cgroup.devices.deny = a

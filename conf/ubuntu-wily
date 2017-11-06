@@ -6,5 +6,4 @@
 lxc.include = /usr/share/lxc/config/ubuntu.common.conf
 
 # settings for systemd with PID 1:
-lxc.kmsg = 0
 lxc.autodev = 1
