@@ -71,6 +71,13 @@ trusty_packages.
 
 Note: ADDPACKAGES is currently only implemented for flavors of debian.
 
+## Change default user
+
+If you want to create other user different from `vagrant` you only have to set the `VAGRANT_USER`
+variable to the name you want.
+
+For example: `VAGRANT_USER=ubuntu make xenial`
+
 ## Pre built base boxes
 
 _**NOTE:** None of the base boxes below have a provisioner pre-installed_
