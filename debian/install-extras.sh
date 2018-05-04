@@ -21,6 +21,9 @@ PACKAGES+=" ${ADDPACKAGES}"
 
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
+  if [ $RELEASE == 'xenial' ]; then
+    PACKAGES+=' libpam-systemd'
+  fi
 fi
 if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
   PACKAGES+=' nfs-common'
