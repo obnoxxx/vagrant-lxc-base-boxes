@@ -23,9 +23,15 @@ popd &>>${LOG}
 
 # Prepare package contents
 log 'Preparing box package contents'
-if [ -f conf/${DISTRIBUTION}-${RELEASE} ]; then
+LXCVERSION=$(lxc --version | cut -c1-1)
+if [ -f conf/${DISTRIBUTION}-${RELEASE}-${LXCVERSION} ]; then
+  log "Using conf/${DISTRIBUTION}-${RELEASE}-${LXCVERSION} configuration file"
+  cp conf/${DISTRIBUTION}-${RELEASE}-${LXCVERSION} ${WORKING_DIR}/lxc-config
+elif [ -f conf/${DISTRIBUTION}-${RELEASE} ]; then
+  log "Using conf/${DISTRIBUTION}-${RELEASE} configuration file"
   cp conf/${DISTRIBUTION}-${RELEASE} ${WORKING_DIR}/lxc-config
 else
+  log "Using conf/${DISTRIBUTION} configuration file"
   cp conf/${DISTRIBUTION} ${WORKING_DIR}/lxc-config
 fi
 cp conf/metadata.json ${WORKING_DIR}
