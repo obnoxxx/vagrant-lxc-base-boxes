@@ -22,10 +22,10 @@ PACKAGES+=" ${ADDPACKAGES}"
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi
-if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
+if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] && [ $RELEASE != 'bionic' ] ; then
   PACKAGES+=' nfs-common'
 fi
-if [ $RELEASE != 'stretch' ] ; then
+if [ $RELEASE != 'stretch' ] && [ $RELEASE != 'bionic' ]; then
   PACKAGES+=' python-software-properties'
 fi
 utils.lxc.attach apt-get update
@@ -95,7 +95,7 @@ if [ $SALT = 1 ]; then
     warn "Salt can't be installed on Ubuntu Raring 13.04, skipping"
   else
     if [ $DISTRIBUTION = 'ubuntu' ]; then
-      if [ $RELEASE = 'precise' ] || [ $RELEASE = 'trusty' ] || [ $RELEASE = 'xenial' ] ; then
+      if [ $RELEASE = 'precise' ] || [ $RELEASE = 'trusty' ] || [ $RELEASE = 'xenial' ] || [ $RELEASE = 'bionic' ] ; then
         # For LTS releases we use packages from repo.saltstack.com
         if [ $RELEASE = 'precise' ]; then
           SALT_SOURCE_1="deb http://repo.saltstack.com/apt/ubuntu/12.04/amd64/latest precise main"
@@ -106,6 +106,9 @@ if [ $SALT = 1 ]; then
         elif [ $RELEASE = 'xenial' ]; then
           SALT_SOURCE_1="deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main"
           SALT_GPG_KEY="https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub"
+        elif [ $RELEASE = 'bionic' ]; then
+          SALT_SOURCE_1="http://ru.archive.ubuntu.com/ubuntu/ bionic main"
+          SALT_GPG_KEY="http://ru.archive.ubuntu.com/ubuntu/dists/bionic/Release.gpg"
         fi
         echo $SALT_SOURCE_1 > ${ROOTFS}/etc/apt/sources.list.d/saltstack.list
 
