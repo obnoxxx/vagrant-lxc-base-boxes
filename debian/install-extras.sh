@@ -25,7 +25,7 @@ fi
 if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
   PACKAGES+=' nfs-common'
 fi
-if [ $RELEASE != 'stretch' ] ; then
+if [ $RELEASE != 'stretch' ] && [ $RELEASE !='bionic' ]; then
   PACKAGES+=' python-software-properties'
 fi
 utils.lxc.attach apt-get update
