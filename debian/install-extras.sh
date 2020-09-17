@@ -14,7 +14,7 @@ SECS=15
 log "Sleeping for $SECS seconds..."
 sleep $SECS
 
-PACKAGES=(vim curl wget man-db openssh-server bash-completion ca-certificates sudo)
+PACKAGES=(vim curl wget man-db openssh-server bash-completion ca-certificates sudo iputils-ping dnsutils)
 
 log "Installing additional packages: ${ADDPACKAGES}"
 PACKAGES+=" ${ADDPACKAGES}"
@@ -25,7 +25,7 @@ fi
 if [ $RELEASE != 'raring' ] && [ $RELEASE != 'saucy' ] && [ $RELEASE != 'trusty' ] && [ $RELEASE != 'wily' ] ; then
   PACKAGES+=' nfs-common'
 fi
-if [ $RELEASE != 'stretch' ] ; then
+if [ $RELEASE != 'buster' ] && [ $RELEASE != 'stretch' ] && [ $RELEASE != 'bionic' ] && [ $RELEASE != 'focal' ]; then
   PACKAGES+=' python-software-properties'
 fi
 utils.lxc.attach apt-get update
@@ -95,7 +95,7 @@ if [ $SALT = 1 ]; then
     warn "Salt can't be installed on Ubuntu Raring 13.04, skipping"
   else
     if [ $DISTRIBUTION = 'ubuntu' ]; then
-      if [ $RELEASE = 'precise' ] || [ $RELEASE = 'trusty' ] || [ $RELEASE = 'xenial' ] ; then
+      if [ $RELEASE = 'precise' ] || [ $RELEASE = 'trusty' ] || [ $RELEASE = 'xenial' ] || [ $RELEASE = 'bionic' ]; then
         # For LTS releases we use packages from repo.saltstack.com
         if [ $RELEASE = 'precise' ]; then
           SALT_SOURCE_1="deb http://repo.saltstack.com/apt/ubuntu/12.04/amd64/latest precise main"
@@ -106,6 +106,9 @@ if [ $SALT = 1 ]; then
         elif [ $RELEASE = 'xenial' ]; then
           SALT_SOURCE_1="deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main"
           SALT_GPG_KEY="https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub"
+        elif [ $RELEASE = 'bionic' ]; then
+          SALT_SOURCE_1="deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main"
+          SALT_GPG_KEY="https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub"
         fi
         echo $SALT_SOURCE_1 > ${ROOTFS}/etc/apt/sources.list.d/saltstack.list
 

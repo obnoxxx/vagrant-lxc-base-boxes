@@ -15,8 +15,9 @@ log "Sleeping for $SECS seconds..."
 sleep $SECS
 
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim-enhanced curl wget man-db bash-completion ca-certificates sudo openssh-server strace python-dnf dnf-plugins-core e2fsprogs net-tools bind-utils)
+PACKAGES=(vim-enhanced curl wget man-db bash-completion ca-certificates sudo openssh-server strace python-dnf dnf-plugins-core e2fsprogs net-tools bind-utils ethtool)
 
+export LANG=C
 utils.lxc.attach yum update -y
 utils.lxc.attach yum install ${PACKAGES[*]} -y
 
