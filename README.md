@@ -15,12 +15,16 @@ This repository contains a set of scripts for creating base boxes for usage with
   - Vivid 15.04 x86_64
   - Wily 15.10 x86_64
   - Xenial 16.04 x86_64
+  - Yakkety 16.10 x86_64
+  - Bionic 18.04 x86_64
+  - Focal 20.04 x86_64
 * Debian
   - Squeeze x86_64
   - Wheezy x86_64
   - Jessie x86_64
   - Stretch x86_64
   - Sid x86_64
+  - Buster x86_64
 * Fedora
   - 19 x86_64
   - 20 x86_64
@@ -28,6 +32,7 @@ This repository contains a set of scripts for creating base boxes for usage with
   - 22 x86_64
   - 23 x86_64
   - rawhide x86_64
+  - 33 x86_64
 * CentOS
   - 6 x86_64
   - 7 x86_64
@@ -58,13 +63,18 @@ List of supported distributions through Makefile
 | vivid | Ubuntu 15.04 |
 | wily | Ubuntu 15.10 |
 | xenial | Ubuntu 16.04 |
+| yakkety | Ubuntu 16.10 |
+| bionic | Ubuntu 18.04 LTS |
+| focal | Ubuntu 20.04 LTS |
 | squeeze | Debian 6 |
 | wheezy | Debian 7 |
 | jessie | Debian 8 |
 | stretch | Debian 9 |
+| buster | Debian 10 |
 | sid | Debian SID |
 | centos6 | CentOS 6 |
 | centos7 | CentOS 7 |
+| fedora33 | Fedora 33 |
 | rawhide | Fedora Rawhide |
 | fedora23 | Fedora 23 |
 | fedora22 | Fedora 22 |
