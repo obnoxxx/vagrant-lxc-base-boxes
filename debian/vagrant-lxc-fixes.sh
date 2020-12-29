@@ -44,6 +44,11 @@ if [ ${DISTRIBUTION} = 'debian' ]; then
   fi
 fi
 
+# Disable automatic apt runs, otherwise they might lock apt/dpkg directly after
+# boot, when e.g. test runs will want to use it.
+# See https://github.com/chef/bento/issues/609 for more info.
+echo 'APT::Periodic::Enable "0";' > ${ROOTFS}/etc/apt/apt.conf.d/10disable-periodic
+
 utils.lxc.attach /usr/sbin/locale-gen ${LANG}
 utils.lxc.attach update-locale LANG=${LANG}
 
